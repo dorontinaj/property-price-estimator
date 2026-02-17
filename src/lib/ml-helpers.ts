@@ -1,7 +1,6 @@
 import type { Property, Prediction } from "@/lib/types"
 
-// Mock prediction function that simulates ML model inference
-// In production, this would call /api/predict
+// Prediction function that simulates different ML models
 export async function getPrediction(
   property: Property,
   modelId: string
@@ -9,7 +8,7 @@ export async function getPrediction(
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 1500))
 
-  // Base price calculation (simplified model)
+  // Base price calculation (simplified model for other algorithms)
   let basePrice = 150000
 
   // Location factors (simplified)
@@ -84,9 +83,9 @@ export async function getPrediction(
   // Model-specific adjustments (simulating different model behaviors)
   const modelAdjustments: Record<string, { factor: number; uncertainty: number }> = {
     "linear-regression": { factor: 1.0, uncertainty: 0.15 },
+    "knn": { factor: 1.01, uncertainty: 0.13 },
+    "decision-tree": { factor: 0.99, uncertainty: 0.16 },
     "random-forest": { factor: 1.02, uncertainty: 0.12 },
-    "gradient-boosting": { factor: 1.03, uncertainty: 0.10 },
-    "neural-network": { factor: 1.01, uncertainty: 0.08 },
   }
 
   const adjustment = modelAdjustments[modelId] || { factor: 1.0, uncertainty: 0.12 }
@@ -95,16 +94,16 @@ export async function getPrediction(
 
   const modelNames: Record<string, string> = {
     "linear-regression": "Linear Regression",
+    "knn": "k-Nearest Neighbors",
+    "decision-tree": "Decision Trees",
     "random-forest": "Random Forest",
-    "gradient-boosting": "Gradient Boosting",
-    "neural-network": "Neural Network",
   }
 
   const modelTypes: Record<string, "linear" | "tree" | "neural"> = {
     "linear-regression": "linear",
+    "knn": "linear",
+    "decision-tree": "tree",
     "random-forest": "tree",
-    "gradient-boosting": "tree",
-    "neural-network": "neural",
   }
 
   return {

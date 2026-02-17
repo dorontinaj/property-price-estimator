@@ -40,56 +40,81 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
   })
 
   return (
-    <div className="space-y-4">
-      {/* Main Estimate Card */}
-      <Card className="overflow-hidden">
-        <div className="bg-primary/5 border-b border-border px-6 py-4">
+    <div className="space-y-6">
+      {/* Main Estimate Card - Prominent Design */}
+      <Card className="overflow-hidden shadow-lg border-primary/20 bg-gradient-to-br from-primary/5 via-background to-background">
+        <div className="bg-primary/10 border-b border-primary/20 px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-primary" />
-              <span className="font-medium text-foreground">Estimate Complete</span>
+              <span className="font-semibold text-foreground">Estimate Complete</span>
             </div>
-            <Badge variant="secondary" className="gap-1">
-              <Clock className="w-3 h-3" />
+            <Badge variant="secondary" className="gap-1.5 shadow-sm">
+              <Clock className="w-3.5 h-3.5" />
               {formattedDate}
             </Badge>
           </div>
         </div>
         
-        <CardContent className="pt-6">
-          <div className="text-center mb-6">
-            <p className="text-sm text-muted-foreground mb-2">Estimated Property Value</p>
-            <p className="text-4xl sm:text-5xl font-bold text-foreground tracking-tight">
+        <CardContent className="pt-8 pb-8">
+          {/* Large Price Display */}
+          <div className="text-center mb-8">
+            <p className="text-sm font-medium text-muted-foreground mb-3 uppercase tracking-wide">Estimated Property Value</p>
+            <p className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tight mb-4">
               {formatCurrency(prediction.estimatedPrice, prediction.currency)}
             </p>
             
+            {/* Model and Metrics Summary */}
+            <div className="flex items-center justify-center gap-6 text-sm mb-6">
+              <div className="flex items-center gap-2">
+                <Activity className="w-4 h-4 text-primary" />
+                <span className="font-medium text-foreground">{prediction.modelName}</span>
+              </div>
+              {prediction.metrics?.mae && (
+                <div className="flex items-center gap-2">
+                  <span className="text-muted-foreground">MAE:</span>
+                  <span className="font-semibold text-foreground">{formatCurrency(prediction.metrics.mae)}</span>
+                </div>
+              )}
+              {prediction.metrics?.r2 && (
+                <div className="flex items-center gap-2">
+                  <span className="text-muted-foreground">R²:</span>
+                  <span className="font-semibold text-foreground">{formatPercentage(prediction.metrics.r2)}</span>
+                </div>
+              )}
+            </div>
+            
             {prediction.lowerBound && prediction.upperBound && (
-              <div className="mt-3 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-                <ArrowDownRight className="w-4 h-4 text-chart-5" />
-                <span>{formatCurrency(prediction.lowerBound)}</span>
-                <span className="text-border">-</span>
-                <span>{formatCurrency(prediction.upperBound)}</span>
-                <ArrowUpRight className="w-4 h-4 text-chart-2" />
+              <div className="mt-4 flex items-center justify-center gap-3 text-base">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-chart-5/10 border border-chart-5/20">
+                  <ArrowDownRight className="w-5 h-5 text-chart-5" />
+                  <span className="font-semibold text-foreground">{formatCurrency(prediction.lowerBound)}</span>
+                </div>
+                <span className="text-muted-foreground font-medium">to</span>
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-chart-2/10 border border-chart-2/20">
+                  <span className="font-semibold text-foreground">{formatCurrency(prediction.upperBound)}</span>
+                  <ArrowUpRight className="w-5 h-5 text-chart-2" />
+                </div>
               </div>
             )}
           </div>
 
           {/* Property Summary */}
-          <div className="bg-muted/50 rounded-lg p-4 mb-6">
-            <p className="text-sm font-medium text-foreground mb-1">{property.address}</p>
+          <div className="bg-background/80 backdrop-blur-sm rounded-xl p-5 mb-6 border border-border/50 shadow-sm">
+            <p className="text-base font-semibold text-foreground mb-1.5">{property.address}</p>
             <p className="text-sm text-muted-foreground">
-              {property.postalCode} - {property.livingArea} m2
-              {property.bedrooms && ` - ${property.bedrooms} bed`}
-              {property.bathrooms && ` - ${property.bathrooms} bath`}
+              {property.postalCode} • {property.livingArea} m²
+              {property.bedrooms && ` • ${property.bedrooms} bed`}
+              {property.bathrooms && ` • ${property.bathrooms} bath`}
             </p>
           </div>
 
           {/* Confidence & Model Info */}
           <div className="grid gap-4 sm:grid-cols-2">
             {/* Uncertainty Range */}
-            <div className="bg-background border border-border rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Uncertainty Range</span>
+            <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl p-5 shadow-sm">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-medium text-muted-foreground">Uncertainty Range</span>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger>
@@ -103,17 +128,17 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 {uncertaintyPercent < 20 ? (
-                  <TrendingDown className="w-5 h-5 text-chart-2" />
+                  <TrendingDown className="w-6 h-6 text-chart-2" />
                 ) : (
-                  <TrendingUp className="w-5 h-5 text-chart-5" />
+                  <TrendingUp className="w-6 h-6 text-chart-5" />
                 )}
-                <span className="text-2xl font-semibold text-foreground">
+                <span className="text-3xl font-bold text-foreground">
                   {uncertaintyPercent.toFixed(1)}%
                 </span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-2 font-medium">
                 {uncertaintyPercent < 15 
                   ? "High confidence" 
                   : uncertaintyPercent < 25 
@@ -123,20 +148,20 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
             </div>
 
             {/* Model Info */}
-            <div className="bg-background border border-border rounded-lg p-4">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Model Used</span>
-                <Badge variant="outline" className="text-xs">
+            <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl p-5 shadow-sm">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm font-medium text-muted-foreground">Algorithm Used</span>
+                <Badge variant="outline" className="text-xs font-semibold">
                   {prediction.modelType}
                 </Badge>
               </div>
-              <div className="flex items-center gap-2">
-                <Activity className="w-5 h-5 text-primary" />
-                <span className="text-lg font-semibold text-foreground">
+              <div className="flex items-center gap-3">
+                <Activity className="w-6 h-6 text-primary" />
+                <span className="text-xl font-bold text-foreground">
                   {prediction.modelName}
                 </span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-2 font-medium">
                 {prediction.featuresUsed?.length || 0} features analyzed
               </p>
             </div>
@@ -146,37 +171,37 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
 
       {/* Model Metrics Card */}
       {prediction.metrics && (
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base">Model Performance Metrics</CardTitle>
-            <CardDescription>
-              Quality indicators for the prediction model
+        <Card className="shadow-sm">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-base font-semibold">Model Performance Metrics</CardTitle>
+            <CardDescription className="text-sm">
+              Quality indicators for the prediction algorithm
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4 grid-cols-3">
+            <div className="grid gap-6 grid-cols-3">
               {prediction.metrics.r2 !== undefined && (
                 <div className="text-center">
-                  <p className="text-2xl font-semibold text-foreground">
+                  <p className="text-3xl font-bold text-foreground">
                     {formatPercentage(prediction.metrics.r2)}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">R-squared</p>
+                  <p className="text-sm text-muted-foreground mt-2 font-medium">R-squared</p>
                 </div>
               )}
               {prediction.metrics.rmse !== undefined && (
                 <div className="text-center">
-                  <p className="text-2xl font-semibold text-foreground">
+                  <p className="text-3xl font-bold text-foreground">
                     {formatCurrency(prediction.metrics.rmse)}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">RMSE</p>
+                  <p className="text-sm text-muted-foreground mt-2 font-medium">RMSE</p>
                 </div>
               )}
               {prediction.metrics.mae !== undefined && (
                 <div className="text-center">
-                  <p className="text-2xl font-semibold text-foreground">
+                  <p className="text-3xl font-bold text-foreground">
                     {formatCurrency(prediction.metrics.mae)}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">MAE</p>
+                  <p className="text-sm text-muted-foreground mt-2 font-medium">MAE</p>
                 </div>
               )}
             </div>
@@ -186,17 +211,17 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
 
       {/* Features Used */}
       {prediction.featuresUsed && prediction.featuresUsed.length > 0 && (
-        <Card>
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base">Features Analyzed</CardTitle>
-            <CardDescription>
+        <Card className="shadow-sm">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-base font-semibold">Features Analyzed</CardTitle>
+            <CardDescription className="text-sm">
               Property attributes used in the prediction
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
               {prediction.featuresUsed.map((feature) => (
-                <Badge key={feature} variant="secondary" className="capitalize">
+                <Badge key={feature} variant="secondary" className="capitalize font-medium">
                   {feature.replace(/([A-Z])/g, " $1").trim()}
                 </Badge>
               ))}

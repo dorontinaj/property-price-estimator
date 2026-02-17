@@ -63,14 +63,14 @@ Data is sourced from public registries, real estate platforms, and government st
 **Linear Regression**
 A baseline model that assumes linear relationships. Useful for interpretability and as a benchmark for more complex models.
 
+**k-Nearest Neighbors (k-NN)**
+Instance-based learning that predicts based on the k most similar properties. Simple yet effective, especially when there are many similar examples in the dataset.
+
+**Decision Trees**
+Single tree-based model that makes decisions by splitting data based on feature values. Highly interpretable and useful for understanding feature interactions.
+
 **Random Forest**
-An ensemble of 500 decision trees with bootstrap aggregation. Reduces overfitting and provides robust predictions across diverse property types.
-
-**Gradient Boosting (XGBoost)**
-Sequential ensemble that iteratively corrects errors. Achieves high accuracy but requires careful tuning to prevent overfitting.
-
-**Neural Network**
-Multi-layer perceptron with architecture [64, 32, 16] neurons. Uses ReLU activation and dropout for regularization. Best for capturing complex non-linear patterns.`,
+An ensemble of 500 decision trees with bootstrap aggregation. Reduces overfitting and provides robust predictions across diverse property types. Currently our best-performing model.`,
   },
   {
     id: "training",
@@ -88,8 +88,8 @@ Multi-layer perceptron with architecture [64, 32, 16] neurons. Uses ReLU activat
 
 **Regularization:**
 - L2 regularization for linear models
+- Feature scaling and distance metrics for k-NN
 - Tree depth limits and minimum samples for tree-based models
-- Dropout and early stopping for neural networks
 
 **Metrics Tracked:**
 - R-squared (explained variance)
@@ -161,7 +161,7 @@ function MethodologyPage() {
       <AppNavbar />
 
       <main className="flex-1 pt-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-8">
           {/* Page Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">

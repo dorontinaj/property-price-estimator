@@ -104,24 +104,24 @@ export const AVAILABLE_MODELS: Model[] = [
     tags: ["baseline", "fast", "interpretable"],
   },
   {
+    id: "knn",
+    name: "k-Nearest Neighbors (k-NN)",
+    type: "instance-based",
+    description: "Instance-based learning using nearest neighbors",
+    tags: ["simple", "non-parametric", "lazy-learning"],
+  },
+  {
+    id: "decision-tree",
+    name: "Decision Trees",
+    type: "tree",
+    description: "Single decision tree for interpretable predictions",
+    tags: ["interpretable", "fast", "visual"],
+  },
+  {
     id: "random-forest",
     name: "Random Forest",
     type: "tree",
     description: "Ensemble of decision trees for robust predictions",
     tags: ["ensemble", "robust", "feature-importance"],
-  },
-  {
-    id: "gradient-boosting",
-    name: "Gradient Boosting",
-    type: "tree",
-    description: "Sequential ensemble method with high accuracy",
-    tags: ["ensemble", "accurate", "complex"],
-  },
-  {
-    id: "neural-network",
-    name: "Neural Network",
-    type: "neural",
-    description: "Deep learning model for complex pattern recognition",
-    tags: ["deep-learning", "flexible", "data-hungry"],
   },
 ]

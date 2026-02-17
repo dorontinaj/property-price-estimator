@@ -132,5 +132,18 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    overflow-y: scroll !important;
+  }
+  
+  /* Prevent scrollbar from disappearing and content shift when select opens */
+  body[data-scroll-locked] {
+    overflow: scroll !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Ensure scrollbar is always visible to prevent layout shift */
+  html {
+    overflow-y: scroll;
   }
 }

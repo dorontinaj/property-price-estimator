@@ -38,7 +38,7 @@ export function AppFooter() {
               <Home className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-semibold text-foreground">
-              BE Property Estimator
+              Property Estimator
             </span>
           </div>
 
@@ -70,13 +70,11 @@ export function AppFooter() {
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-6 border-t border-border">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <p className="text-sm text-muted-foreground">
               {currentYear} Belgian Property Estimator. For informational purposes only.
             </p>
-            <p className="text-xs text-muted-foreground">
-              Estimates are based on ML models and should not be considered as professional appraisals.
-            </p>
+
           </div>
         </div>
       </div>

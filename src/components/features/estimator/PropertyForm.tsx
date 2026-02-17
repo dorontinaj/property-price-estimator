@@ -96,6 +96,7 @@ function validateProperty(values: Partial<Property>): PropertyFormErrors {
 }
 
 export function PropertyForm({ defaultValues, onSubmit, disabled = false, propertyType = "house" }: PropertyFormProps) {
+
   const [formValues, setFormValues] = useState<Partial<Property>>({
     propertyType: propertyType,
     address: "",
@@ -145,7 +146,6 @@ export function PropertyForm({ defaultValues, onSubmit, disabled = false, proper
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
     const validationErrors = validateProperty(formValues)
     setErrors(validationErrors)
     setTouched({
@@ -154,11 +154,9 @@ export function PropertyForm({ defaultValues, onSubmit, disabled = false, proper
       municipality: true,
       livingArea: true,
     })
-
     if (Object.keys(validationErrors).length > 0) {
       return
     }
-
     setIsSubmitting(true)
     try {
       await onSubmit(formValues as Property)
@@ -179,6 +177,7 @@ export function PropertyForm({ defaultValues, onSubmit, disabled = false, proper
         <CardDescription>
           Enter the property attributes to get an estimated price
         </CardDescription>
+       
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -261,9 +260,9 @@ export function PropertyForm({ defaultValues, onSubmit, disabled = false, proper
               Size & Rooms
             </h3>
             
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="livingArea">{"Living Area (m\u00B2) *"}</Label>
+                <Label htmlFor="livingArea">Living Area (m²) *</Label>
                 <Input
                   id="livingArea"
                   type="number"
@@ -284,7 +283,7 @@ export function PropertyForm({ defaultValues, onSubmit, disabled = false, proper
 
               {currentPropertyType.hasLotArea && (
                 <div className="space-y-2">
-                  <Label htmlFor="lotArea">{"Lot Area (m\u00B2)"}</Label>
+                  <Label htmlFor="lotArea">Lot Area (m²)</Label>
                   <Input
                     id="lotArea"
                     type="number"

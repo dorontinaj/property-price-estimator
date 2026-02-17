@@ -26,26 +26,26 @@ interface HelpSheetProps {
 export function HelpSheet({ open, onOpenChange }: HelpSheetProps) {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="w-full sm:max-w-md">
-        <SheetHeader>
-          <SheetTitle className="flex items-center gap-2">
+      <SheetContent className="w-full sm:max-w-lg">
+        <SheetHeader className="pb-6">
+          <SheetTitle className="flex items-center gap-2 text-xl">
             <HelpCircle className="w-5 h-5 text-primary" />
             Help & Tips
           </SheetTitle>
-          <SheetDescription>
+          <SheetDescription className="text-base">
             Learn how to get the most accurate property estimates
           </SheetDescription>
         </SheetHeader>
 
-        <ScrollArea className="h-[calc(100vh-120px)] mt-6 pr-4">
-          <div className="space-y-6 pb-6">
+        <ScrollArea className="h-[calc(100vh-140px)] pr-4">
+          <div className="space-y-8 pb-8 px-1">
             {/* Location Tips */}
-            <section className="px-1">
-              <h3 className="font-semibold text-foreground flex items-center gap-2 mb-3">
+            <section className="space-y-3 px-4">
+              <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
                 <MapPin className="w-4 h-4 text-primary" />
                 Location Details
               </h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="space-y-3 text-sm text-muted-foreground pl-6">
                 <p>
                   <strong className="text-foreground">Address:</strong> Enter the full street address 
                   including house number. This helps identify the exact neighborhood.
@@ -62,12 +62,12 @@ export function HelpSheet({ open, onOpenChange }: HelpSheetProps) {
             </section>
 
             {/* Size & Rooms */}
-            <section className="px-1">
-              <h3 className="font-semibold text-foreground flex items-center gap-2 mb-3">
+            <section className="space-y-3 px-4">
+              <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
                 <Ruler className="w-4 h-4 text-primary" />
                 Size & Rooms
               </h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="space-y-3 text-sm text-muted-foreground pl-6">
                 <p>
                   <strong className="text-foreground">Living Area:</strong> Enter the habitable 
                   floor space in square meters. This is the primary price driver.
@@ -84,12 +84,12 @@ export function HelpSheet({ open, onOpenChange }: HelpSheetProps) {
             </section>
 
             {/* Energy Label */}
-            <section className="px-1">
-              <h3 className="font-semibold text-foreground flex items-center gap-2 mb-3">
+            <section className="space-y-3 px-4">
+              <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
                 <Zap className="w-4 h-4 text-primary" />
                 Energy Label
               </h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="space-y-3 text-sm text-muted-foreground pl-6">
                 <p>
                   Energy labels range from A (most efficient) to G (least efficient). 
                   Better energy ratings command higher prices due to lower utility costs.
@@ -101,38 +101,38 @@ export function HelpSheet({ open, onOpenChange }: HelpSheetProps) {
             </section>
 
             {/* ML Models */}
-            <section className="px-1">
-              <h3 className="font-semibold text-foreground flex items-center gap-2 mb-3">
+            <section className="space-y-3 px-4">
+              <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
                 <Brain className="w-4 h-4 text-primary" />
                 Understanding Models
               </h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="space-y-3 text-sm text-muted-foreground pl-6">
                 <p>
                   <strong className="text-foreground">Linear Regression:</strong> Simple, 
                   interpretable model. Best for typical properties.
                 </p>
                 <p>
-                  <strong className="text-foreground">Random Forest:</strong> Handles complex 
-                  patterns. Good all-around choice.
+                  <strong className="text-foreground">k-NN:</strong> Predicts based on 
+                  similar properties. Works well with many comparable examples.
                 </p>
                 <p>
-                  <strong className="text-foreground">Gradient Boosting:</strong> High accuracy 
-                  but may overfit on unusual properties.
+                  <strong className="text-foreground">Decision Trees:</strong> Highly 
+                  interpretable tree-based decisions. Shows feature importance.
                 </p>
                 <p>
-                  <strong className="text-foreground">Neural Network:</strong> Best for complex 
-                  relationships but needs more data.
+                  <strong className="text-foreground">Random Forest:</strong> Ensemble model 
+                  with best overall accuracy. Recommended for most cases.
                 </p>
               </div>
             </section>
 
             {/* Understanding Results */}
-            <section className="px-1">
-              <h3 className="font-semibold text-foreground flex items-center gap-2 mb-3">
+            <section className="space-y-3 px-4">
+              <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
                 <BarChart3 className="w-4 h-4 text-primary" />
                 Understanding Results
               </h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="space-y-3 text-sm text-muted-foreground pl-6">
                 <p>
                   <strong className="text-foreground">Estimated Price:</strong> The model's 
                   best prediction for market value.
@@ -153,12 +153,12 @@ export function HelpSheet({ open, onOpenChange }: HelpSheetProps) {
             </section>
 
             {/* Disclaimer */}
-            <section className="bg-muted/50 rounded-lg p-4 mx-1">
-              <h3 className="font-semibold text-foreground flex items-center gap-2 mb-2">
+            <section className="bg-muted/50 rounded-lg p-5 space-y-2 mx-4">
+              <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
                 <AlertCircle className="w-4 h-4 text-chart-5" />
                 Important Notice
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 These estimates are for informational purposes only and should not 
                 replace professional property appraisals. Actual market values may 
                 vary based on factors not captured in the model.

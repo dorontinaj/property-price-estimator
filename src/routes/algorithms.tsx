@@ -9,7 +9,6 @@ import {
   TrendingUp,
   GitBranch,
   Layers,
-  Brain,
   CheckCircle2,
   ArrowRight,
   Zap,
@@ -34,41 +33,41 @@ const models = [
     bgColor: "bg-chart-1/10",
   },
   {
-    id: "random-forest",
-    name: "Random Forest",
-    type: "tree",
-    icon: GitBranch,
-    description: "Ensemble of decision trees that reduces overfitting through averaging.",
-    pros: ["Handles non-linearity", "Feature importance ranking", "Robust to outliers"],
-    cons: ["Slower than linear models", "Less interpretable"],
-    metrics: { r2: 0.86, rmse: 38000, mae: 27000, speed: 75 },
-    bestFor: "General-purpose predictions with mixed features",
+    id: "knn",
+    name: "k-Nearest Neighbors (k-NN)",
+    type: "instance-based",
+    icon: Target,
+    description: "Instance-based learning that predicts based on the k most similar properties in the dataset.",
+    pros: ["No training phase", "Adapts to local patterns", "Simple to understand"],
+    cons: ["Slow for large datasets", "Sensitive to feature scaling", "Memory intensive"],
+    metrics: { r2: 0.81, rmse: 42000, mae: 30000, speed: 70 },
+    bestFor: "Properties with many similar examples in the dataset",
     color: "text-chart-2",
     bgColor: "bg-chart-2/10",
   },
   {
-    id: "gradient-boosting",
-    name: "Gradient Boosting",
+    id: "decision-tree",
+    name: "Decision Trees",
     type: "tree",
-    icon: Layers,
-    description: "Sequential ensemble that builds trees to correct previous errors.",
-    pros: ["High accuracy", "Handles missing data", "Feature interactions"],
-    cons: ["Risk of overfitting", "Slower training", "Many hyperparameters"],
-    metrics: { r2: 0.89, rmse: 34000, mae: 24000, speed: 60 },
-    bestFor: "Complex properties requiring high precision",
+    icon: GitBranch,
+    description: "Tree-based model that makes decisions by splitting data based on feature values.",
+    pros: ["Highly interpretable", "Handles non-linearity", "No feature scaling needed"],
+    cons: ["Prone to overfitting", "Unstable to data changes", "Biased with imbalanced data"],
+    metrics: { r2: 0.76, rmse: 47000, mae: 34000, speed: 85 },
+    bestFor: "Understanding decision logic and feature interactions",
     color: "text-chart-3",
     bgColor: "bg-chart-3/10",
   },
   {
-    id: "neural-network",
-    name: "Neural Network",
-    type: "neural",
-    icon: Brain,
-    description: "Deep learning model with multiple layers for complex pattern recognition.",
-    pros: ["Captures complex patterns", "Flexible architecture", "Continuous improvement"],
-    cons: ["Needs large datasets", "Black box predictions", "Computationally expensive"],
-    metrics: { r2: 0.91, rmse: 31000, mae: 22000, speed: 40 },
-    bestFor: "Unique properties with unusual feature combinations",
+    id: "random-forest",
+    name: "Random Forest",
+    type: "tree",
+    icon: Layers,
+    description: "Ensemble of decision trees that reduces overfitting through averaging and randomization.",
+    pros: ["High accuracy", "Handles non-linearity", "Feature importance ranking", "Robust to outliers"],
+    cons: ["Less interpretable", "Slower inference", "Larger memory footprint"],
+    metrics: { r2: 0.86, rmse: 38000, mae: 27000, speed: 75 },
+    bestFor: "General-purpose predictions requiring robust accuracy",
     color: "text-chart-4",
     bgColor: "bg-chart-4/10",
   },
@@ -84,7 +83,7 @@ function AlgorithmsPage() {
       <AppNavbar />
 
       <main className="flex-1 pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-8">
           {/* Page Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
@@ -111,7 +110,7 @@ function AlgorithmsPage() {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Best Accuracy</p>
-                    <p className="text-xl font-bold text-foreground">Neural Network</p>
+                    <p className="text-xl font-bold text-foreground">Random Forest</p>
                   </div>
                 </div>
               </CardContent>
@@ -136,8 +135,8 @@ function AlgorithmsPage() {
                     <BarChart3 className="w-5 h-5 text-chart-3" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Best Balance</p>
-                    <p className="text-xl font-bold text-foreground">Gradient Boosting</p>
+                    <p className="text-sm text-muted-foreground">Most Interpretable</p>
+                    <p className="text-xl font-bold text-foreground">Decision Trees</p>
                   </div>
                 </div>
               </CardContent>
@@ -253,21 +252,12 @@ function AlgorithmsPage() {
                     </div>
 
                     {/* Action */}
-                    {model.id === "neural-network" ? (
-                      <Button asChild className="w-full gap-2">
-                        <Link to="/neural-network">
-                          Use This Model
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
-                      </Button>
-                    ) : (
-                      <Button asChild className="w-full gap-2">
-                        <Link to="/" search={{ model: model.id }}>
-                          Use This Model
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
-                      </Button>
-                    )}
+                    <Button asChild className="w-full gap-2">
+                      <Link to="/" search={{ model: model.id }}>
+                        Use This Model
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
               )

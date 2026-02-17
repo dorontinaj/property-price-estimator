@@ -71,7 +71,7 @@ export function AppNavbar() {
               <Home className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-semibold text-foreground">
-              BE Property
+              Property Estimator
             </span>
           </Link>
 
