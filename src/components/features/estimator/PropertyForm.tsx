@@ -168,7 +168,7 @@ export function PropertyForm({ defaultValues, onSubmit, disabled = false, proper
   const isDisabled = disabled || isSubmitting
 
   return (
-    <Card className="w-full">
+    <Card className="w-full border-0">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Home className="w-5 h-5 text-primary" />

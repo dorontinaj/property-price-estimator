@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router"
-import { Home, Brain, Cpu, BarChart3, BookOpen, Github } from "lucide-react"
+import { Home, Brain, Cpu, BookOpen } from "lucide-react"
 
 /**
  * AppFooter
@@ -21,7 +21,6 @@ const navigationLinks = [
   { name: "Estimator", href: "/", icon: Home },
   { name: "Neural Network", href: "/neural-network", icon: Brain },
   { name: "Algorithms", href: "/algorithms", icon: Cpu },
-  { name: "Insights", href: "/insights", icon: BarChart3 },
   { name: "Methodology", href: "/methodology", icon: BookOpen },
 ]
 
@@ -38,12 +37,12 @@ export function AppFooter() {
               <Home className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-semibold text-foreground">
-              Property Estimator
+              PriceLens
             </span>
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex flex-wrap justify-center gap-4">
+          <nav className="flex flex-wrap justify-end gap-4">
             {navigationLinks.map((link) => (
               <Link
                 key={link.name}
@@ -54,25 +53,13 @@ export function AppFooter() {
               </Link>
             ))}
           </nav>
-
-          {/* GitHub Link */}
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-            aria-label="View on GitHub"
-          >
-            <Github className="w-4 h-4" />
-            <span className="hidden sm:inline">Source Code</span>
-          </a>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-6 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              {currentYear} Belgian Property Estimator. For informational purposes only.
+              {currentYear} Belgian Property Estimator.
             </p>
 
           </div>

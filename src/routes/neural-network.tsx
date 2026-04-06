@@ -141,11 +141,11 @@ function NeuralNetworkPage() {
       <div className="min-h-screen flex flex-col bg-background">
         <AppNavbar />
         <main className="flex-1 pt-20">
-          <div className="max-w-6xl mx-auto px-6 sm:px-8 py-8">
-            <Card className='shadow-lg border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/50'>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
+            <Card className='border-0 bg-[#E8F0EC] dark:bg-[#111f16]'>
               <CardHeader>
                 <CardTitle className='flex items-center gap-2'>
-                  <Brain className='h-6 w-6 text-indigo-600 dark:text-indigo-400 animate-pulse' />
+                  <Brain className='h-6 w-6 text-[#3D6B4F] dark:text-[#8FAF97] animate-pulse' />
                   Loading Pretrained Neural Network
                 </CardTitle>
                 <CardDescription>
@@ -164,15 +164,15 @@ function NeuralNetworkPage() {
                   </div>
                   <Progress value={loadingProgress} className='h-3' />
                 </div>
-                <div className='p-4 bg-background dark:bg-card rounded-lg border border-indigo-200 dark:border-indigo-800'>
+                <div className='p-4 bg-background rounded-lg border border-[#C8D9CE] dark:border-[#1e3528]'>
                   <p className='text-sm text-muted-foreground'>
-                    🧠 Loading 4-layer GraphModel from TensorFlow SavedModel format
+                    Loading 4-layer GraphModel from TensorFlow SavedModel format
                     <br />
-                    📦 Pretrained on real Belgian property transactions (2018-2024)
+                    Pretrained on real Belgian property transactions
                     <br />
-                    ⚡ Optimized for browser inference with WebGL acceleration
+                    Optimized for browser inference with WebGL acceleration
                     <br />
-                    🎯 Ready for real-time predictions
+                    Ready for real-time predictions
                   </p>
                 </div>
               </CardContent>
@@ -188,11 +188,11 @@ function NeuralNetworkPage() {
       <AppNavbar />
       
       <main className="flex-1 pt-20">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
           {/* Page Header */}
           <div className="text-center mb-8">
             <div className='flex items-center justify-center gap-2 sm:gap-3 mb-4'>
-              <div className='p-2 sm:p-3 bg-indigo-600 dark:bg-indigo-500 rounded-xl shadow-lg'>
+              <div className='p-2 sm:p-3 bg-[#3D6B4F] dark:bg-[#5E8C6A] rounded-xl'>
                 <Brain className='h-6 w-6 sm:h-8 sm:w-8 text-white' />
               </div>
               <div className='text-left'>
@@ -207,25 +207,25 @@ function NeuralNetworkPage() {
             <div className='flex justify-center gap-2 flex-wrap'>
               <Badge
                 variant='secondary'
-                className='bg-indigo-100 text-indigo-800 border border-indigo-300 dark:bg-indigo-950 dark:text-indigo-300 dark:border-indigo-700'
+                className='bg-[#D4EDE0] text-[#264D38] border border-[#C8D9CE] dark:bg-[#1A2E22] dark:text-[#8FAF97] dark:border-[#1e3528]'
               >
                 TensorFlow.js
               </Badge>
               <Badge
                 variant='secondary'
-                className='bg-slate-100 text-slate-800 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-600'
+                className='bg-[#E8F0EC] text-[#3D6B4F] border border-[#C8D9CE] dark:bg-[#1A2E22] dark:text-[#8FAF97] dark:border-[#1e3528]'
               >
                 Pretrained Model
               </Badge>
               <Badge
                 variant='secondary'
-                className='bg-teal-100 text-teal-800 border border-teal-300 dark:bg-teal-950 dark:text-teal-300 dark:border-teal-700'
+                className='bg-[#D4EDE0] text-[#264D38] border border-[#C8D9CE] dark:bg-[#1A2E22] dark:text-[#8FAF97] dark:border-[#1e3528]'
               >
                 Live Prediction
               </Badge>
               <Badge
                 variant='secondary'
-                className='bg-slate-100 text-slate-800 border border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-600'
+                className='bg-[#E8F0EC] text-[#3D6B4F] border border-[#C8D9CE] dark:bg-[#1A2E22] dark:text-[#8FAF97] dark:border-[#1e3528]'
               >
                 Real-time Inference
               </Badge>
@@ -234,8 +234,8 @@ function NeuralNetworkPage() {
 
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
             {/* Interactive Sliders */}
-            <Card className='shadow-lg border-indigo-200 bg-indigo-50 dark:border-indigo-800 dark:bg-indigo-950/50'>
-              <CardHeader className='bg-indigo-50 dark:bg-indigo-950/50 border-b border-indigo-200 dark:border-indigo-800'>
+            <Card className='border-0 bg-secondary dark:bg-muted/40'>
+              <CardHeader className='bg-secondary dark:bg-muted/40 border-b border-border'>
                 <CardTitle>Property Features</CardTitle>
                 <CardDescription>
                   Adjust sliders to see live price predictions
@@ -248,7 +248,7 @@ function NeuralNetworkPage() {
                     <Label className='text-sm font-medium text-foreground'>
                       Living Area
                     </Label>
-                    <span className='text-sm font-semibold text-indigo-600 dark:text-indigo-400'>
+                    <span className='text-sm font-semibold text-[#3D6B4F] dark:text-[#8FAF97]'>
                       {livingArea} m²
                     </span>
                   </div>
@@ -268,7 +268,7 @@ function NeuralNetworkPage() {
                     <Label className='text-sm font-medium text-foreground'>
                       Lot Area
                     </Label>
-                    <span className='text-sm font-semibold text-indigo-600 dark:text-indigo-400'>
+                    <span className='text-sm font-semibold text-[#3D6B4F] dark:text-[#8FAF97]'>
                       {lotArea} m²
                     </span>
                   </div>
@@ -288,7 +288,7 @@ function NeuralNetworkPage() {
                     <Label className='text-sm font-medium text-foreground'>
                       Bedrooms
                     </Label>
-                    <span className='text-sm font-semibold text-indigo-600 dark:text-indigo-400'>
+                    <span className='text-sm font-semibold text-[#3D6B4F] dark:text-[#8FAF97]'>
                       {bedrooms}
                     </span>
                   </div>
@@ -308,7 +308,7 @@ function NeuralNetworkPage() {
                     <Label className='text-sm font-medium text-foreground'>
                       Bathrooms
                     </Label>
-                    <span className='text-sm font-semibold text-indigo-600 dark:text-indigo-400'>
+                    <span className='text-sm font-semibold text-[#3D6B4F] dark:text-[#8FAF97]'>
                       {bathrooms}
                     </span>
                   </div>
@@ -328,7 +328,7 @@ function NeuralNetworkPage() {
                     <Label className='text-sm font-medium text-foreground'>
                       Construction Year
                     </Label>
-                    <span className='text-sm font-semibold text-indigo-600 dark:text-indigo-400'>
+                    <span className='text-sm font-semibold text-[#3D6B4F] dark:text-[#8FAF97]'>
                       {yearBuilt}
                     </span>
                   </div>
@@ -347,15 +347,15 @@ function NeuralNetworkPage() {
                   <Label className='text-sm font-medium text-foreground'>
                     Location
                   </Label>
-                  <div className='grid grid-cols-4 gap-2'>
+                  <div className='grid grid-cols-2 sm:grid-cols-4 gap-2'>
                     {belgianCities.map((city) => (
                       <button
                         key={city.id}
                         onClick={() => setMunicipality(city.id)}
                         className={`px-3 py-2 text-xs rounded-lg border transition-all ${
                           municipality === city.id
-                            ? 'bg-indigo-600 text-white border-indigo-600 shadow-md dark:bg-indigo-500 dark:border-indigo-500'
-                            : 'bg-background text-foreground border-border hover:border-indigo-400 dark:hover:border-indigo-500'
+                            ? 'bg-[#5E8C6A] text-white border-[#5E8C6A] dark:bg-[#3D6B4F] dark:border-[#3D6B4F]'
+                            : 'bg-background text-foreground border-border hover:border-[#7BA58A] dark:hover:border-[#5E8C6A]'
                         }`}
                       >
                         {city.name}
@@ -371,7 +371,7 @@ function NeuralNetworkPage() {
                       type='checkbox'
                       checked={hasGarden}
                       onChange={(e) => setHasGarden(e.target.checked)}
-                      className='rounded border-2 border-border text-indigo-600 focus:ring-indigo-500 focus:ring-2 w-4 h-4 accent-indigo-600 dark:accent-indigo-500'
+                      className='rounded border-2 border-border w-4 h-4 accent-[#5E8C6A]'
                     />
                     <span className='text-sm text-muted-foreground group-hover:text-foreground transition-colors'>
                       Has Garden
@@ -382,7 +382,7 @@ function NeuralNetworkPage() {
                       type='checkbox'
                       checked={hasParking}
                       onChange={(e) => setHasParking(e.target.checked)}
-                      className='rounded border-2 border-border text-indigo-600 focus:ring-indigo-500 focus:ring-2 w-4 h-4 accent-indigo-600 dark:accent-indigo-500'
+                      className='rounded border-2 border-border w-4 h-4 accent-[#5E8C6A]'
                     />
                     <span className='text-sm text-muted-foreground group-hover:text-foreground transition-colors'>
                       Has Garage
@@ -393,7 +393,7 @@ function NeuralNetworkPage() {
                       type='checkbox'
                       checked={hasTerrace}
                       onChange={(e) => setHasTerrace(e.target.checked)}
-                      className='rounded border-2 border-border text-indigo-600 focus:ring-indigo-500 focus:ring-2 w-4 h-4 accent-indigo-600 dark:accent-indigo-500'
+                      className='rounded border-2 border-border w-4 h-4 accent-[#5E8C6A]'
                     />
                     <span className='text-sm text-muted-foreground group-hover:text-foreground transition-colors'>
                       Has Terrace
@@ -404,7 +404,7 @@ function NeuralNetworkPage() {
                       type='checkbox'
                       checked={hasGarage}
                       onChange={(e) => setHasGarage(e.target.checked)}
-                      className='rounded border-2 border-border text-indigo-600 focus:ring-indigo-500 focus:ring-2 w-4 h-4 accent-indigo-600 dark:accent-indigo-500'
+                      className='rounded border-2 border-border w-4 h-4 accent-[#5E8C6A]'
                     />
                     <span className='text-sm text-muted-foreground group-hover:text-foreground transition-colors'>
                       Has Parking
@@ -416,23 +416,23 @@ function NeuralNetworkPage() {
 
             {/* Live Prediction Display */}
             <div className='space-y-6'>
-              <Card className='shadow-lg border-indigo-200 dark:border-indigo-800 bg-gradient-to-br from-indigo-50 to-slate-50 dark:from-indigo-950/50 dark:to-slate-950/50'>
+              <Card className='border-0 bg-linear-to-br from-secondary to-accent dark:from-muted/40 dark:to-muted/20'>
                 <CardHeader>
-                  <CardTitle className='flex items-center gap-2 text-indigo-900 dark:text-indigo-200'>
+                  <CardTitle className='flex items-center gap-2 text-[#264D38] dark:text-[#C8D9CE]'>
                     <TrendingUp className='h-5 w-5' />
                     Neural Network Prediction
                   </CardTitle>
-                  <CardDescription className='text-indigo-800 dark:text-indigo-400'>
+                  <CardDescription className='text-[#3D6B4F] dark:text-[#8FAF97]'>
                     Live updated as you adjust parameters
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   {prediction ? (
                     <div className='text-center'>
-                      <div className='text-5xl font-bold text-indigo-900 dark:text-indigo-200 mb-3'>
+                      <div className='text-5xl font-bold text-[#264D38] dark:text-[#C8D9CE] mb-3'>
                         €{prediction.toLocaleString()}
                       </div>
-                      <div className='flex items-center justify-center gap-2 text-sm text-indigo-800 dark:text-indigo-400'>
+                        <div className='flex items-center justify-center gap-2 text-sm text-[#3D6B4F] dark:text-[#8FAF97]'>
                         <Zap className='h-4 w-4' />
                         <span>Real-time deep learning inference</span>
                       </div>
@@ -451,7 +451,7 @@ function NeuralNetworkPage() {
                 </CardContent>
               </Card>
 
-              <Card className='shadow-lg'>
+              <Card className='border-0'>
                 <CardHeader>
                   <CardTitle className='text-base flex items-center gap-2'>
                     <Cpu className="w-5 h-5 text-primary" />
@@ -465,19 +465,19 @@ function NeuralNetworkPage() {
                       <div className='w-20 text-xs font-medium text-muted-foreground'>
                         Input
                       </div>
-                      <div className='flex-1 bg-slate-600 h-8 rounded flex items-center justify-center text-white text-xs font-semibold shadow-md'>
+                      <div className='flex-1 bg-[#8FAF97] dark:bg-[#264D38] h-8 rounded-md flex items-center justify-center text-white text-xs font-semibold'>
                         {networkArchitecture.inputLayer} features
                       </div>
                     </div>
                     {networkArchitecture.hiddenLayers.map((neurons, i) => {
-                      const layerColors = ['bg-indigo-600', 'bg-indigo-500', 'bg-indigo-400'];
+                      const layerColors = ['bg-[#5E8C6A] dark:bg-[#4A7A5A]', 'bg-[#4A7A5A] dark:bg-[#3D6B4F]', 'bg-[#3D6B4F] dark:bg-[#264D38]'];
                       const layerHeights = ['h-10', 'h-9', 'h-8'];
                       return (
                         <div key={i} className='flex items-center gap-3'>
                           <div className='w-20 text-xs font-medium text-muted-foreground'>
                             Layer {i + 1}
                           </div>
-                          <div className={`flex-1 ${layerColors[i]} ${layerHeights[i]} rounded flex items-center justify-center text-white text-xs font-semibold shadow-md`}>
+                          <div className={`flex-1 ${layerColors[i]} ${layerHeights[i]} rounded-md flex items-center justify-center text-white text-xs font-semibold`}>
                             {neurons} neurons + {networkArchitecture.activation}
                           </div>
                         </div>
@@ -487,7 +487,7 @@ function NeuralNetworkPage() {
                       <div className='w-20 text-xs font-medium text-muted-foreground'>
                         Output
                       </div>
-                      <div className='flex-1 bg-teal-600 h-7 rounded flex items-center justify-center text-white text-xs font-semibold shadow-md'>
+                      <div className='flex-1 bg-[#264D38] dark:bg-[#5E8C6A] h-7 rounded-md flex items-center justify-center text-white text-xs font-semibold'>
                         {networkArchitecture.outputLayer} neuron (price)
                       </div>
                     </div>
@@ -495,24 +495,24 @@ function NeuralNetworkPage() {
                 </CardContent>
               </Card>
 
-              <Card className='shadow-lg border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/50'>
+              <Card className='border-0 bg-secondary dark:bg-muted/40'>
                 <CardHeader>
                   <CardTitle className='text-base'>Why Neural Networks?</CardTitle>
                 </CardHeader>
                 <CardContent className='text-sm text-muted-foreground space-y-2'>
                   <p>
-                    🧠 <strong className="text-foreground">Non-linear patterns:</strong> Captures complex
+                    <strong className="text-foreground">Non-linear patterns:</strong> Captures complex
                     relationships between features
                   </p>
                   <p>
-                    🎯 <strong className="text-foreground">Feature interactions:</strong> Automatically learns
+                    <strong className="text-foreground">Feature interactions:</strong> Automatically learns
                     which combinations matter
                   </p>
                   <p>
-                    📊 <strong className="text-foreground">Pretrained model:</strong> Trained on 100,000+ real Belgian property transactions
+                   <strong className="text-foreground">Pretrained model:</strong> Trained on 100,000+ real Belgian property transactions
                   </p>
                   <p>
-                    ⚡ <strong className="text-foreground">Fast inference:</strong> WebGL-accelerated predictions in milliseconds
+                    <strong className="text-foreground">Fast inference:</strong> WebGL-accelerated predictions in milliseconds
                   </p>
                 </CardContent>
               </Card>

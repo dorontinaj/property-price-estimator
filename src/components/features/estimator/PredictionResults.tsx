@@ -42,7 +42,7 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
   return (
     <div className="space-y-6">
       {/* Main Estimate Card - Prominent Design */}
-      <Card className="overflow-hidden shadow-lg border-primary/20 bg-gradient-to-br from-primary/5 via-background to-background">
+      <Card className="overflow-hidden border-0 bg-gradient-to-br from-primary/5 via-background to-background">
         <div className="bg-primary/10 border-b border-primary/20 px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -65,7 +65,7 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
             </p>
             
             {/* Model and Metrics Summary */}
-            <div className="flex items-center justify-center gap-6 text-sm mb-6">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm mb-6">
               <div className="flex items-center gap-2">
                 <Activity className="w-4 h-4 text-primary" />
                 <span className="font-medium text-foreground">{prediction.modelName}</span>
@@ -85,7 +85,7 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
             </div>
             
             {prediction.lowerBound && prediction.upperBound && (
-              <div className="mt-4 flex items-center justify-center gap-3 text-base">
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-3 text-base">
                 <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-chart-5/10 border border-chart-5/20">
                   <ArrowDownRight className="w-5 h-5 text-chart-5" />
                   <span className="font-semibold text-foreground">{formatCurrency(prediction.lowerBound)}</span>
@@ -171,7 +171,7 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
 
       {/* Model Metrics Card */}
       {prediction.metrics && (
-        <Card className="shadow-sm">
+        <Card className="border-0">
           <CardHeader className="pb-4">
             <CardTitle className="text-base font-semibold">Model Performance Metrics</CardTitle>
             <CardDescription className="text-sm">
@@ -211,7 +211,7 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
 
       {/* Features Used */}
       {prediction.featuresUsed && prediction.featuresUsed.length > 0 && (
-        <Card className="shadow-sm">
+        <Card className="border-0">
           <CardHeader className="pb-4">
             <CardTitle className="text-base font-semibold">Features Analyzed</CardTitle>
             <CardDescription className="text-sm">

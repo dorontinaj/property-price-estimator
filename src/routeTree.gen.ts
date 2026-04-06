@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as NeuralNetworkRouteImport } from './routes/neural-network'
 import { Route as MethodologyRouteImport } from './routes/methodology'
-import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as AlgorithmsRouteImport } from './routes/algorithms'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -23,11 +22,6 @@ const NeuralNetworkRoute = NeuralNetworkRouteImport.update({
 const MethodologyRoute = MethodologyRouteImport.update({
   id: '/methodology',
   path: '/methodology',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InsightsRoute = InsightsRouteImport.update({
-  id: '/insights',
-  path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlgorithmsRoute = AlgorithmsRouteImport.update({
@@ -44,14 +38,12 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsRoute
-  '/insights': typeof InsightsRoute
   '/methodology': typeof MethodologyRoute
   '/neural-network': typeof NeuralNetworkRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsRoute
-  '/insights': typeof InsightsRoute
   '/methodology': typeof MethodologyRoute
   '/neural-network': typeof NeuralNetworkRoute
 }
@@ -59,33 +51,20 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/algorithms': typeof AlgorithmsRoute
-  '/insights': typeof InsightsRoute
   '/methodology': typeof MethodologyRoute
   '/neural-network': typeof NeuralNetworkRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/algorithms'
-    | '/insights'
-    | '/methodology'
-    | '/neural-network'
+  fullPaths: '/' | '/algorithms' | '/methodology' | '/neural-network'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/algorithms' | '/insights' | '/methodology' | '/neural-network'
-  id:
-    | '__root__'
-    | '/'
-    | '/algorithms'
-    | '/insights'
-    | '/methodology'
-    | '/neural-network'
+  to: '/' | '/algorithms' | '/methodology' | '/neural-network'
+  id: '__root__' | '/' | '/algorithms' | '/methodology' | '/neural-network'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlgorithmsRoute: typeof AlgorithmsRoute
-  InsightsRoute: typeof InsightsRoute
   MethodologyRoute: typeof MethodologyRoute
   NeuralNetworkRoute: typeof NeuralNetworkRoute
 }
@@ -104,13 +83,6 @@ declare module '@tanstack/react-router' {
       path: '/methodology'
       fullPath: '/methodology'
       preLoaderRoute: typeof MethodologyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/insights': {
-      id: '/insights'
-      path: '/insights'
-      fullPath: '/insights'
-      preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/algorithms': {
@@ -133,7 +105,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlgorithmsRoute: AlgorithmsRoute,
-  InsightsRoute: InsightsRoute,
   MethodologyRoute: MethodologyRoute,
   NeuralNetworkRoute: NeuralNetworkRoute,
 }

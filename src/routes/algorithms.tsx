@@ -83,7 +83,7 @@ function AlgorithmsPage() {
       <AppNavbar />
 
       <main className="flex-1 pt-20">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
           {/* Page Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
@@ -102,7 +102,7 @@ function AlgorithmsPage() {
 
           {/* Quick Stats */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-            <Card>
+            <Card className="border-0">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-chart-1/10 flex items-center justify-center">
@@ -115,7 +115,7 @@ function AlgorithmsPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-0">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-chart-2/10 flex items-center justify-center">
@@ -128,7 +128,7 @@ function AlgorithmsPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-0">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-chart-3/10 flex items-center justify-center">
@@ -141,7 +141,7 @@ function AlgorithmsPage() {
                 </div>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-0">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -161,7 +161,7 @@ function AlgorithmsPage() {
             {models.map((model) => {
               const Icon = model.icon
               return (
-                <Card key={model.id} className="overflow-hidden">
+                <Card key={model.id} className="overflow-hidden border-0">
                   <CardHeader className={model.bgColor}>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
@@ -181,7 +181,7 @@ function AlgorithmsPage() {
                     </p>
 
                     {/* Performance Metrics */}
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                       <div className="text-center">
                         <p className="text-lg font-bold text-foreground">
                           {(model.metrics.r2 * 100).toFixed(0)}%
@@ -265,7 +265,7 @@ function AlgorithmsPage() {
           </div>
 
           {/* Methodology Link */}
-          <Card className="mt-8">
+          <Card className="mt-8 border-0">
             <CardContent className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
               <div>
                 <h3 className="font-semibold text-foreground">Want to learn more?</h3>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "@tanstack/react-router"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Home, Brain, Cpu, BarChart3, BookOpen, Moon, Sun } from "lucide-react"
+import { Menu, X, Home, Brain, Cpu, BookOpen, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 
@@ -25,7 +25,6 @@ const navigationLinks = [
   { name: "Estimator", href: "/", icon: Home },
   { name: "Neural Network", href: "/neural-network", icon: Brain },
   { name: "Algorithms", href: "/algorithms", icon: Cpu },
-  { name: "Insights", href: "/insights", icon: BarChart3 },
   { name: "Methodology", href: "/methodology", icon: BookOpen },
 ]
 
@@ -71,7 +70,7 @@ export function AppNavbar() {
               <Home className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-semibold text-foreground">
-              Property Estimator
+              PriceLens
             </span>
           </Link>
 
@@ -87,7 +86,7 @@ export function AppNavbar() {
                   className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isActive
                       ? "bg-primary/10 text-primary"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      : "text-foreground hover:text-muted-foreground hover:bg-muted"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -151,7 +150,7 @@ export function AppNavbar() {
                     className={`flex items-center gap-3 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 ${
                       isActive
                         ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                        : "text-foreground hover:text-muted-foreground hover:bg-muted"
                     }`}
                   >
                     <Icon className="w-5 h-5" />

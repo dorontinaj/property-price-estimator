@@ -89,7 +89,7 @@ function EstimatorPage() {
       <AppNavbar />
       
       <main className="flex-1 pt-20">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
           {/* Page Header */}
           <div className="mb-8">
             <div className="flex items-center justify-between gap-4 flex-wrap">
@@ -114,7 +114,7 @@ function EstimatorPage() {
           </div>
 
           {/* Configuration Card */}
-          <Card className="shadow-sm mb-8">
+          <Card className="mb-8 border-0">
           
             <CardContent>
               <div className="grid gap-6 sm:grid-cols-2">
@@ -186,7 +186,7 @@ function EstimatorPage() {
             {/* Right Column - Prediction Results */}
             <div>
               {isLoading ? (
-                <Card className="shadow-lg border-primary/20 bg-gradient-to-br from-primary/5 to-background">
+                <Card className="border-0 bg-gradient-to-br from-primary/5 to-background">
                   <CardContent className="flex flex-col items-center justify-center py-16 text-center">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 animate-pulse">
                       <Cpu className="w-8 h-8 text-primary" />
@@ -205,7 +205,7 @@ function EstimatorPage() {
                   property={currentProperty}
                 />
               ) : (
-                <Card className="border-dashed shadow-sm">
+                <Card className="border-0">
                   <CardContent className="flex flex-col items-center justify-center py-16 text-center">
                     <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mb-4">
                       <Cpu className="w-8 h-8 text-muted-foreground" />
@@ -224,7 +224,7 @@ function EstimatorPage() {
 
           {/* Prediction History - Full Width Below */}
           {predictionHistory.length > 0 && (
-            <Card className="shadow-sm mt-8">
+            <Card className="mt-8 border-0">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-base font-semibold flex items-center gap-2">

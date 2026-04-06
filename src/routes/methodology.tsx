@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { AppNavbar } from "@/components/layout/AppNavbar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import {
   BookOpen,
@@ -22,7 +21,7 @@ const sections = [
     icon: Database,
     content: `Our property price estimation models are trained on a comprehensive dataset of Belgian real estate transactions. The data includes:
 
-- **Transaction Records**: Historical property sales data from 2018-2024
+- **Transaction Records**: Historical property sales
 - **Property Attributes**: Living area, lot size, number of rooms, construction year
 - **Location Data**: Municipality, postal code, regional economic indicators
 - **Energy Certificates**: EPC ratings where available
@@ -161,7 +160,7 @@ function MethodologyPage() {
       <AppNavbar />
 
       <main className="flex-1 pt-20">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
           {/* Page Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
@@ -181,7 +180,7 @@ function MethodologyPage() {
           {/* Quick Stats */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
             {metrics.map((metric) => (
-              <Card key={metric.label}>
+              <Card key={metric.label} className="border-0">
                 <CardContent className="pt-6">
                   <p className="text-2xl font-bold text-foreground">{metric.value}</p>
                   <p className="text-sm font-medium text-foreground mt-1">{metric.label}</p>
@@ -192,7 +191,7 @@ function MethodologyPage() {
           </div>
 
           {/* Table of Contents */}
-          <Card className="mb-8">
+          <Card className="mb-8 border-0">
             <CardHeader>
               <CardTitle className="text-base flex items-center gap-2">
                 <FileText className="w-4 h-4 text-primary" />
@@ -224,16 +223,13 @@ function MethodologyPage() {
               const Icon = section.icon
               return (
                 <section key={section.id} id={section.id}>
-                  <Card>
+                  <Card className="border-0">
                     <CardHeader>
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                           <Icon className="w-4 h-4 text-primary" />
                         </div>
                         <div>
-                          <Badge variant="outline" className="mb-1">
-                            Section {index + 1}
-                          </Badge>
                           <CardTitle className="text-xl">{section.title}</CardTitle>
                         </div>
                       </div>
@@ -291,7 +287,7 @@ function MethodologyPage() {
           </div>
 
           {/* Footer Note */}
-          <Card className="mt-8 border-dashed">
+          <Card className="mt-8 border-0">
             <CardContent className="py-6 text-center">
               <p className="text-sm text-muted-foreground">
                 This methodology document was last updated January 2026. 

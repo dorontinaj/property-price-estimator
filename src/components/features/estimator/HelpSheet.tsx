@@ -15,7 +15,9 @@ import {
   Zap, 
   Brain, 
   BarChart3,
-  AlertCircle
+  AlertCircle,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react"
 
 interface HelpSheetProps {
@@ -39,6 +41,26 @@ export function HelpSheet({ open, onOpenChange }: HelpSheetProps) {
 
         <ScrollArea className="h-[calc(100vh-140px)] pr-4">
           <div className="space-y-8 pb-8 px-1">
+
+            {/* Neural Network Callout — top priority */}
+            <section className="bg-primary/10 border border-primary/20 rounded-lg p-5 mx-4 space-y-3">
+              <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
+                <Sparkles className="w-4 h-4 text-primary" />
+                Want an AI-powered prediction?
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                This page runs predictions using <strong className="text-foreground">4 classical ML algorithms</strong> (Linear Regression, k-NN, Decision Trees, Random Forest).
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                For a deep learning estimate, head to the{" "}
+                <strong className="text-foreground">Neural Network</strong> tab.{" "}
+                <span className="text-primary font-medium">Your inputs here will be automatically carried over</span> — no need to re-enter anything. Just fill in the form and navigate there when ready.
+              </p>
+              <div className="flex items-center gap-1.5 text-sm text-primary font-medium">
+                <ArrowRight className="w-4 h-4" />
+                Neural Network tab → instant AI prediction
+              </div>
+            </section>
             {/* Location Tips */}
             <section className="space-y-3 px-4">
               <h3 className="font-semibold text-foreground flex items-center gap-2 text-base">
