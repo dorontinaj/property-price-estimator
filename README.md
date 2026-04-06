@@ -12,15 +12,15 @@ A web application for estimating real estate prices in the Belgian market. Users
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | React 18 + Vite |
-| Routing | TanStack Router (type-safe) |
-| State Management | Zustand |
-| ML Engine | TensorFlow.js (browser inference) |
-| UI Components | shadcn/ui + Radix UI |
-| Styling | Tailwind CSS |
-| Language | TypeScript |
+| Layer            | Technology                        |
+| ---------------- | --------------------------------- |
+| Framework        | React 18 + Vite                   |
+| Routing          | TanStack Router (type-safe)       |
+| State Management | Zustand                           |
+| ML Engine        | TensorFlow.js (browser inference) |
+| UI Components    | shadcn/ui + Radix UI              |
+| Styling          | Tailwind CSS                      |
+| Language         | TypeScript                        |
 
 ## Getting Started
 
@@ -96,13 +96,13 @@ If the model cannot be loaded (e.g., browser compatibility), the app falls back 
 
 ## Available Scripts
 
-| Script | Description |
-|---|---|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format code with Prettier |
+| Script            | Description               |
+| ----------------- | ------------------------- |
+| `npm run dev`     | Start development server  |
+| `npm run build`   | Build for production      |
+| `npm run preview` | Preview production build  |
+| `npm run lint`    | Run ESLint                |
+| `npm run format`  | Format code with Prettier |
 
 ## Notes
 
