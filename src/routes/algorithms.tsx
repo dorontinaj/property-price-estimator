@@ -3,7 +3,6 @@ import { AppNavbar } from "@/components/layout/AppNavbar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
 import {
   Cpu,
   TrendingUp,
@@ -161,7 +160,7 @@ function AlgorithmsPage() {
             {models.map((model) => {
               const Icon = model.icon
               return (
-                <Card key={model.id} className="overflow-hidden border-0">
+                <Card key={model.id} className="overflow-hidden border-0 flex flex-col">
                   <CardHeader className={model.bgColor}>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
@@ -175,47 +174,10 @@ function AlgorithmsPage() {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent className="pt-6 space-y-6">
+                  <CardContent className="pt-6 flex flex-col flex-1 gap-6">
                     <p className="text-sm text-muted-foreground">
                       {model.description}
                     </p>
-
-                    {/* Performance Metrics */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-foreground">
-                          {(model.metrics.r2 * 100).toFixed(0)}%
-                        </p>
-                        <p className="text-xs text-muted-foreground">R-squared</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-foreground">
-                          {(model.metrics.rmse / 1000).toFixed(0)}k
-                        </p>
-                        <p className="text-xs text-muted-foreground">RMSE</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-foreground">
-                          {(model.metrics.mae / 1000).toFixed(0)}k
-                        </p>
-                        <p className="text-xs text-muted-foreground">MAE</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-lg font-bold text-foreground">
-                          {model.metrics.speed}%
-                        </p>
-                        <p className="text-xs text-muted-foreground">Speed</p>
-                      </div>
-                    </div>
-
-                    {/* Speed Progress Bar */}
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-xs">
-                        <span className="text-muted-foreground">Inference Speed</span>
-                        <span className="text-foreground">{model.metrics.speed}%</span>
-                      </div>
-                      <Progress value={model.metrics.speed} className="h-2" />
-                    </div>
 
                     {/* Pros & Cons */}
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -243,7 +205,8 @@ function AlgorithmsPage() {
                       </div>
                     </div>
 
-                    {/* Best For */}
+                    {/* Best For + Action */}
+                    <div className="mt-auto space-y-3">
                     <div className="bg-muted/50 rounded-lg p-3">
                       <p className="text-sm">
                         <span className="font-medium text-foreground">Best for: </span>
@@ -258,6 +221,7 @@ function AlgorithmsPage() {
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     </Button>
+                    </div>
                   </CardContent>
                 </Card>
               )

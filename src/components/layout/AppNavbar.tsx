@@ -65,7 +65,7 @@ export function AppNavbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" search={{ model: undefined }} className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <Home className="w-4 h-4 text-primary-foreground" />
             </div>
@@ -82,7 +82,7 @@ export function AppNavbar() {
               return (
                 <Link
                   key={link.name}
-                  to={link.href}
+                  to={link.href as never}
                   className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     isActive
                       ? "bg-primary/10 text-primary"
@@ -145,7 +145,7 @@ export function AppNavbar() {
                 return (
                   <Link
                     key={link.name}
-                    to={link.href}
+                    to={link.href as never}
                     onClick={closeMobileMenu}
                     className={`flex items-center gap-3 px-3 py-3 rounded-md text-base font-medium transition-colors duration-200 ${
                       isActive

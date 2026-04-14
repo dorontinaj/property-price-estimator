@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { AppNavbar } from "@/components/layout/AppNavbar"
 import { PropertyForm } from "@/components/features/estimator/PropertyForm"
 import { PredictionResults } from "@/components/features/estimator/PredictionResults"
@@ -24,11 +24,15 @@ import { useToast } from "@/hooks/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 
 export const Route = createFileRoute('/')({ 
+  validateSearch: (search: Record<string, unknown>) => ({
+    model: typeof search.model === 'string' ? search.model : undefined,
+  }),
   component: EstimatorPage,
 })
 
 function EstimatorPage() {
   const { toast } = useToast()
+  const { model: modelParam } = Route.useSearch()
   const {
     predictionHistory,
     isLoading,
@@ -39,6 +43,12 @@ function EstimatorPage() {
     setSelectedModel,
     clearHistory,
   } = usePredictionStore()
+
+  useEffect(() => {
+    if (modelParam) {
+      setSelectedModel(modelParam)
+    }
+  }, [modelParam, setSelectedModel])
 
   const [showHelp, setShowHelp] = useState(false)
   const [currentPrediction, setCurrentPrediction] = useState<Prediction | null>(null)

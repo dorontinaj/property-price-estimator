@@ -54,7 +54,7 @@ function NeuralNetworkPage() {
   const [yearBuilt, setYearBuilt] = useState(lastProperty?.yearBuilt || 2000)
   const [municipality, setMunicipality] = useState(lastProperty?.municipality || "brussels")
   const [hasGarden, setHasGarden] = useState(lastProperty?.hasGarden || false)
-  const [hasParking, setHasParking] = useState(true)
+  const [hasParking, setHasParking] = useState(false)
   const [hasTerrace, setHasTerrace] = useState(lastProperty?.hasTerrace || false)
   const [hasGarage, setHasGarage] = useState(lastProperty?.hasGarage || false)
   
@@ -385,7 +385,7 @@ function NeuralNetworkPage() {
                       className='rounded border-2 border-border w-4 h-4 accent-[#5E8C6A]'
                     />
                     <span className='text-sm text-muted-foreground group-hover:text-foreground transition-colors'>
-                      Has Garage
+                      Has Parking
                     </span>
                   </label>
                   <label className='flex items-center space-x-2 cursor-pointer group'>
@@ -407,7 +407,7 @@ function NeuralNetworkPage() {
                       className='rounded border-2 border-border w-4 h-4 accent-[#5E8C6A]'
                     />
                     <span className='text-sm text-muted-foreground group-hover:text-foreground transition-colors'>
-                      Has Parking
+                      Has Garage
                     </span>
                   </label>
                 </div>

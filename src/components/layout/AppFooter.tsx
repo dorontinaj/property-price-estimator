@@ -32,21 +32,21 @@ export function AppFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Brand */}
-          <div className="flex items-center gap-2">
+          <Link to="/" search={{ model: undefined }} className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <Home className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="text-lg font-semibold text-foreground">
               PriceLens
             </span>
-          </div>
+          </Link>
 
           {/* Navigation Links */}
           <nav className="flex flex-wrap justify-end gap-4">
             {navigationLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.href}
+                to={link.href as never}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
                 {link.name}

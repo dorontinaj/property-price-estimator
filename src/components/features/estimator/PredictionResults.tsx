@@ -19,7 +19,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import type { Prediction, Property } from "@/lib/types"
-import { formatCurrency, formatPercentage } from "@/lib/ml-helpers"
+import { formatCurrency } from "@/lib/ml-helpers"
 
 interface PredictionResultsProps {
   prediction: Prediction
@@ -70,18 +70,6 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
                 <Activity className="w-4 h-4 text-primary" />
                 <span className="font-medium text-foreground">{prediction.modelName}</span>
               </div>
-              {prediction.metrics?.mae && (
-                <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground">MAE:</span>
-                  <span className="font-semibold text-foreground">{formatCurrency(prediction.metrics.mae)}</span>
-                </div>
-              )}
-              {prediction.metrics?.r2 && (
-                <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground">R²:</span>
-                  <span className="font-semibold text-foreground">{formatPercentage(prediction.metrics.r2)}</span>
-                </div>
-              )}
             </div>
             
             {prediction.lowerBound && prediction.upperBound && (
@@ -168,46 +156,6 @@ export function PredictionResults({ prediction, property }: PredictionResultsPro
           </div>
         </CardContent>
       </Card>
-
-      {/* Model Metrics Card */}
-      {prediction.metrics && (
-        <Card className="border-0">
-          <CardHeader className="pb-4">
-            <CardTitle className="text-base font-semibold">Model Performance Metrics</CardTitle>
-            <CardDescription className="text-sm">
-              Quality indicators for the prediction algorithm
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid gap-6 grid-cols-3">
-              {prediction.metrics.r2 !== undefined && (
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-foreground">
-                    {formatPercentage(prediction.metrics.r2)}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2 font-medium">R-squared</p>
-                </div>
-              )}
-              {prediction.metrics.rmse !== undefined && (
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-foreground">
-                    {formatCurrency(prediction.metrics.rmse)}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2 font-medium">RMSE</p>
-                </div>
-              )}
-              {prediction.metrics.mae !== undefined && (
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-foreground">
-                    {formatCurrency(prediction.metrics.mae)}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2 font-medium">MAE</p>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      )}
 
       {/* Features Used */}
       {prediction.featuresUsed && prediction.featuresUsed.length > 0 && (
