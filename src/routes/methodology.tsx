@@ -88,13 +88,7 @@ An ensemble of 500 decision trees with bootstrap aggregation. Reduces overfittin
 **Regularization:**
 - L2 regularization for linear models
 - Feature scaling and distance metrics for k-NN
-- Tree depth limits and minimum samples for tree-based models
-
-**Metrics Tracked:**
-- R-squared (explained variance)
-- RMSE (root mean squared error)
-- MAE (mean absolute error)
-- MAPE (mean absolute percentage error)`,
+- Tree depth limits and minimum samples for tree-based models`,
   },
   {
     id: "uncertainty",
@@ -143,13 +137,6 @@ Estimates are for informational purposes only.`,
   },
 ]
 
-const metrics = [
-  { label: "Training Samples", value: "125,000+", description: "Property transactions" },
-  { label: "Test R-squared", value: "0.89", description: "Best performing model" },
-  { label: "Avg. Error", value: "~8%", description: "Mean absolute percentage error" },
-  { label: "Update Frequency", value: "Monthly", description: "Model retraining cycle" },
-]
-
 export const Route = createFileRoute('/methodology')({
   component: MethodologyPage,
 })
@@ -175,19 +162,6 @@ function MethodologyPage() {
               Technical documentation on data sources, model training, validation procedures, 
               and the approach used for Belgian property price estimation.
             </p>
-          </div>
-
-          {/* Quick Stats */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
-            {metrics.map((metric) => (
-              <Card key={metric.label} className="border-0">
-                <CardContent className="pt-6">
-                  <p className="text-2xl font-bold text-foreground">{metric.value}</p>
-                  <p className="text-sm font-medium text-foreground mt-1">{metric.label}</p>
-                  <p className="text-xs text-muted-foreground">{metric.description}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
 
           {/* Table of Contents */}
@@ -291,7 +265,7 @@ function MethodologyPage() {
             <CardContent className="py-6 text-center">
               <p className="text-sm text-muted-foreground">
                 This methodology document was last updated January 2026. 
-                For questions or feedback, please contact our data science team.
+                For questions or feedback, please contact us.
               </p>
             </CardContent>
           </Card>
