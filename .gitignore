@@ -27,7 +27,9 @@ yarn-error.log*
 next-env.d.ts
 
 # python envs
-tfjs-convert-env/
 .venv-tfjs-export/
+.venv-train/
+tfjs-env/
+tfjs-convert-env/
 .venv/
 venv/
