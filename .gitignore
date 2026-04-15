@@ -24,4 +24,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.tstfjs-convert-env/
+next-env.d.ts
+
+# python envs
+tfjs-convert-env/
+.venv-tfjs-export/
+.venv/
+venv/
